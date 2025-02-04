@@ -106,17 +106,32 @@ Retrouvez les informations suivantes sur le container lancé précédemment :
 
 ### 2.2. Inspecter un container
 
-
 1. Chaque container dispose d'une interface réseau.  Quelle est l'adresse **IP** de l'interface de votre container? 
-2.  Votre container a-t'il des **ports** ouverts?  
 
+    L'adresse IP est **172.17.0.2**.
+
+    <img src="./sceenshots/part2/2_2_1.png" alt="Output de la commande docker inspect" style="width:4
+    0%">
+
+2. Votre container a-t'il des **ports** ouverts?  
+
+    Non, aucun port n'est ouvert.
+
+    <img src="./sceenshots/part2/2_2_2.png" alt="Output de la commande docker inspect" style="width=55%">
 
 ### 2.3. Faire tourner un service dans un container
 
 
 
-- Qu'avez-vous observé au niveau des "ports" ?  Expliquez et illustrez votre réponse avec des screenshots. 
+- Qu'avez-vous observé au niveau des "ports" ?  Expliquez et illustrez votre réponse avec des screenshots.
 
+    Ici on voit que nginx tourne sur le port 80 utilisant le protocole TCP mais pas encore accessible en dehors de la machine.
+
+    <img src="./sceenshots/part2/2_3_1.png" alt="Output de la commande docker inspect" style="width=55%">
+
+    Après avoir exécuté la commande suivante: ```docker run -p80:80 --name=mon-serveur-web2b nginx```  et lancé le container, on voit qu'il est accessible en dehors de la machine car on préciser le port de la machine sur lequel il est lancé.
+
+    <img src="./sceenshots/part2/2_3_2.png" alt="Output de la commande docker inspect" style="width=30%">
 
 ## 3. Construire des images
 
