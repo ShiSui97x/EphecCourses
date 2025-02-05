@@ -148,7 +148,7 @@ Après la modification de l'index.html:
 
 Sauvegarde de l'image modifiée à l'aide de la commande: ```docker container commit mon-serveur-web2b myweb```
 
-<img src="./sceenshots/part3/3_1ter.png" alt="" style="width:50%">
+<img src="./sceenshots/part3/3_1ter.png" alt="Après sauvegarde de l'image" style="width:50%">
 
 ### 3.2. Créer une image sur base d'un Dockerfile
 
@@ -170,10 +170,45 @@ Puis j'ai lancé le container et j'ai observé qu'il est accessible en dehors de
 Documentez ici la réalisation des exercices, via des explications et des snapshots. 
 ### 4.1. Démarrer un serveur Web Apache
 
+Pour l'image Apache, j'ai choisi "httpd" que j'ai installé en utilisant : ```docker pull httpd```
+
+<img src="./sceenshots/part4/4_1.png" alt="Pull de l'image" style="width:40%">
+
+J'ai ensuite démarré un premier container sur le port 80 de ma machine avec: ```docker run --name=myapache -p80:80 httpd```
+
+Puis un deuxième container sur le port 8080 de ma machine avec: ```docker run --name=myapache2 -p8080:80 httpd```
+
+<img src="./sceenshots/part4/4_1bis.png" alt="Menu des containers montrant les containers myapache et myapache2" style="width:55%">
+
+Pour renter dans  chaque container, j'ai utilisé la commande suivante: ```docker exec -it [nom du container] bash``` avec pour nom du container **"myapache"** et **"myapache2"**
+
+Puis j'ai fait un ```apt update``` et ```apt install -y nano``` puis j'ai modifié le fichier html pour chaque comme suit:
+
+<img src="./sceenshots/part4/4_1ter.png" alt="Modification du fichier html pour le container myapache" style="width:20%">
+
+<img src="./sceenshots/part4/4_1quater.png" alt="Modification du fichier html pour le container myapache2" style="width:20%">
+
+Dans un répertoire, j'ai créé un dossier avec un fichier **Dockerfile** à l'interieur contenant les commandes suivantes:
+
+```
+FROM httpd:latest
+RUN apt update && apt install -y nano
+COPY index.html /usr/local/apache2/htdocs
+```
+
+Puis j'ai construit l'image avec la commande suivante: ```docker build -t myhttpd .```
+
+<img src="./sceenshots/part4/4_1quin.png" alt="Construction de l'image" style="width:50%">
+
+<img src="./sceenshots/part4/4_1quinbis.png" alt="Construction de l'image" style="width:80%">
+
+Pour terminer, j'ai créé un container à partir de cette image avec la commande suivante: ```docker run --name=myapache3 -p1411:80 myhttpd``` puis je l'ai lancé et j'ai observé qu'il est accessible en dehors de la machine.
+
+<img src="./sceenshots/part4/4_1quinter.png" alt="Page web de myapache3" style="width:30%">
 
 ### 4.2. Lancer un résolveur Bind dans un container Docker
 
-1. Quelle configuration avez-vous effectuée au niveau des ports ? 
-2. Qu'avez-vous observé dans la trace Wireshark qui prouve que la configuration est correcte?  Illustrez avec un screenshot de la capture. 
+1. Quelle configuration avez-vous effectuée au niveau des ports ?
+2. Qu'avez-vous observé dans la trace Wireshark qui prouve que la configuration est correcte?  Illustrez avec un screenshot de la capture.
 
 ### 4.3. Container avec script Python
