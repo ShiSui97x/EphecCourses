@@ -110,36 +110,60 @@ Retrouvez les informations suivantes sur le container lancé précédemment :
 
     L'adresse IP est **172.17.0.2**.
 
-    <img src="./sceenshots/part2/2_2_1.png" alt="Output de la commande docker inspect" style="width:4
-    0%">
+    <img src="./sceenshots/part2/2_2_1.png" alt="Output de la commande docker inspect" style="width:40%">
 
 2. Votre container a-t'il des **ports** ouverts?  
 
     Non, aucun port n'est ouvert.
 
-    <img src="./sceenshots/part2/2_2_2.png" alt="Output de la commande docker inspect" style="width=55%">
+    <img src="./sceenshots/part2/2_2_2.png" alt="Output de la commande docker inspect" style="width:55%">
 
 ### 2.3. Faire tourner un service dans un container
-
-
 
 - Qu'avez-vous observé au niveau des "ports" ?  Expliquez et illustrez votre réponse avec des screenshots.
 
     Ici on voit que nginx tourne sur le port 80 utilisant le protocole TCP mais pas encore accessible en dehors de la machine.
 
-    <img src="./sceenshots/part2/2_3_1.png" alt="Output de la commande docker inspect" style="width=55%">
+    <img src="./sceenshots/part2/2_3_1.png" alt="Output de la commande docker inspect" style="width:30%">
 
     Après avoir exécuté la commande suivante: ```docker run -p80:80 --name=mon-serveur-web2b nginx```  et lancé le container, on voit qu'il est accessible en dehors de la machine car on préciser le port de la machine sur lequel il est lancé.
 
-    <img src="./sceenshots/part2/2_3_2.png" alt="Output de la commande docker inspect" style="width=30%">
+    <img src="./sceenshots/part2/2_3_2.png" alt="Output de la commande docker inspect" style="width:30%">
 
 ## 3. Construire des images
 
-### 3.1. Figer un container 
+### 3.1. Figer un container
 
+Après avoir utilisé les commandes:
+
+<img src="./sceenshots/part3/3_1.png" alt="Après modification du index.html" style="width:50%">
+
+<br>
+
+Après la modification de l'index.html:
+
+<img src="./sceenshots/part3/3_1bis.png" alt="Après modification du index.html" style="width:50%">
+
+<br>
+
+Sauvegarde de l'image modifiée à l'aide de la commande: ```docker container commit mon-serveur-web2b myweb```
+
+<img src="./sceenshots/part3/3_1ter.png" alt="" style="width:50%">
 
 ### 3.2. Créer une image sur base d'un Dockerfile
 
+Après la création du Dockerfile et du fichier index.html, j'ai créé l'image suivante:
+
+<img src="./sceenshots/part3/3_2.png" alt="" style="width:50%">
+<img src="./sceenshots/part3/3_2bis.png" alt="" style="width:50%">
+
+Puis pour un test j'ai crréé un container sur base de cette image avec la commande suivante: ```docker run --name=web -p80:80 myweb2```
+
+<img src="./sceenshots/part3/3_2ter.png" alt="" style="width:50%">
+
+Puis j'ai lancé le container et j'ai observé qu'il est accessible en dehors de la machine.
+
+<img src="./sceenshots/part3/3_2quater.png" alt="" style="width:50%">
 
 ## Exercices récapitulatifs
 
