@@ -45,6 +45,7 @@ Retrouvez les informations suivantes sur le container lancé précédemment :
     <img src="./sceenshots/part1/1_2_6.png" alt="Menu des containers" style="width:75%">
 
     Pour trouver la dernière information soit celle de la commande, il faut rentrer dans le container, aller dans l'option "Inspect" puis trouver la commande dans le JSON.
+    
     <img src="./sceenshots/part1/1_2_6bis.png" alt="Champs CMD issu du json" style="width:30%">
 
 
