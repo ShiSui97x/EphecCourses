@@ -209,7 +209,56 @@ Pour terminer, j'ai créé un container à partir de cette image avec la command
 
 ### 4.2. Lancer un résolveur Bind dans un container Docker
 
+J'ai pull l'image Bind comme ceci:
+
+<img src="./sceenshots/part4/4_2.png" alt="Pull de l'image" style="width:40%">
+
+Puis j'ai créer un container à partir de cette image avec la commande suivante:
+
+<img src="./sceenshots/part4/4_2bis.png" alt="Création du container" style="width:40%">
+
+Une fois le container lancé, j'ai testé la commande ```nslookup 127.0.0.1 google.com``` qui n'a pas abouti.
+
+<img src="./sceenshots/part4/4_2ter.png" alt="nslookup 127.0.0.1 google.com" style="width:30%">
+
+Et inversement, j'ai testé la commande ```nslookup google.com 127.0.0.1``` qui a abouti.
+
+<img src="./sceenshots/part4/4_2quater.png" alt="nslookup google.com 127.0.0.1" style="width:30%">
+
+<img src="./sceenshots/part4/4_2quaterbis.png" alt="nslookup google.com 127.0.0.1" style="width:40%">
+
+Puis je suis rentré dans le container afin de mofifier le fichier **/etc/bind/named.conf.options** comme suit:
+
+<img src="./sceenshots/part4/4_2quin.png" alt="nslookup google.com 127.0.0.1" style="width:40%">
+
+Afin de rajouter les lignes ci-dessous permettant le forwarding:
+
+<img src="./sceenshots/part4/4_2quinbis.png" alt="nslookup google.com 127.0.0.1" style="width:20%">
+
 1. Quelle configuration avez-vous effectuée au niveau des ports ?
+
+Pour la configuration des ports, j'ai lancé le container sur le port 53/tcp et 53/udp car le service DNS utilise le port 53 avec les protocoles TCP et UDP (voir photo ci-dessus).
+
 2. Qu'avez-vous observé dans la trace Wireshark qui prouve que la configuration est correcte?  Illustrez avec un screenshot de la capture.
 
+<img src="./sceenshots/part4/4_2quaterbis.png" alt="nslookup google.com 127.0.0.1" style="width:40%">
+
 ### 4.3. Container avec script Python
+
+J'ai effectué une recherche pour le tag de python a installer, **python:3.12.9-alpine3.21**. J'ai ensuite constitué le Dockerfile des lignes suivantes:
+    ```
+
+    FROM python:3.12.9-alpine3.21
+
+    COPY main.py /app/main.py
+
+    WORKDIR /app
+
+    CMD ["python", "main.py"]
+
+
+J'ai créé l'image avec la commande suivante: ```docker build -t display-hour .``` et j'ai lancé le container avec la commande suivante: ```docker run --rm display-hour```
+
+Comme il ne sert qu'à afficher l'heure, il n'est pas nécessaire de garder le container après son utilisation d'où le ```--rm```.
+
+<img src="./sceenshots/part4/4_3.png" alt="Output de la commande docker run --rm display-hour" style="width:40%">
