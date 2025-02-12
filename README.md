@@ -6,7 +6,7 @@ Bienvenue dans ce repository contenant mes travaux pratiques.
 
 **Nom :** CISERANE<br>
 **Prénom :** Thomas<br>
-**Étudiant Erasmus+ :** EPEHC TECH<br>
+**Étudiant Erasmus+ :** EPHEC TECH<br>
 **Université d'origine :** ISEP Paris
 
 ## Table des matières
@@ -16,7 +16,7 @@ Bienvenue dans ce repository contenant mes travaux pratiques.
 
 ## Introduction
 
-Ce repository contiendra l'ensemble de mes travaux pratiques réalisés dans le cadre du cours Administration système et réseaux II.
+Ce repository contiendra l'ensemble de mes travaux pratiques réalisés dans le cadre du cours Administration Systèmes et Réseaux II.
 
 ## Liste des TPs
 
