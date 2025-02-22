@@ -1,0 +1,38 @@
+Admin Réseaux II:
+
+HP ~~ OS 
+
+docker exec -it mon-serveur-web2b /bin/bash
+
+docker build -t img_name . "-t" means tag
+
+nano /usr/share/nginx/html/index.html
+
+Un hyperviseur gère l'accès aux ressources matérielles de la machine hôte.
+
+L'hyperviseur doit garantir l'isolation entre les VMs
+
+Type 1 pas au dessus de l'OS mais directement 
+
+Les solutions de conteneurisation sont plus lourdes à mettre en oeuvre que les solutions de virtualisation: Faux
+
+En virtualisation, un hyperviseur intercepte toutes les instructions des machines virtuelles et les ré-écrit: Faux
+
+L'optimisation de l'utilisation des ressources hardware
+
+La possibilité d'avoir plusieurs systèmes d'exploitation sur une même machine.
+
+La facilité pour la migration des services et applicatifs
+
+La possibilité de tester des logiciels ou OS dans un environnement protégé
+
+En paravirtualisation, les OS virtualisés remplacent certains appels système par des appels à l'hyperviseur: Vrai
+
+Un hyperviseur de type 2 tourne directement sur le matériel: Faux
+----------------------------------------------
+DOCKER
+
+Cgroups : Gestion des ressources
+Namespaces
+Networking
+Security

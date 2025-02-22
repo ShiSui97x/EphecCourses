@@ -1,0 +1,54 @@
+version: '3'
+name : tp2
+services:
+  ContainerA:
+    image: custom-nginx
+    ports:
+      - 80:80
+    volumes:
+    # Access volume1
+      - volume1:/app
+    # Access bind mount
+      - ../../src:/src
+    networks:
+      - net1
+
+  ContainerB:
+    image: custom-nginx
+    ports:
+      - 81:80
+    volumes:
+    # Access volume1
+      - volume1:/app1
+    # Access volume2
+      - volume2:/app2
+    networks:
+      - net1
+      - net2
+
+  ContainerC:
+    image: custom-nginx
+    ports:
+      - 82:80
+    volumes:
+    # Access volume2
+      - volume2:/app
+    networks:
+      - net2
+
+volumes:
+  volume1:
+  volume2:
+
+networks:
+  net1:
+    driver: bridge
+    ipam:
+      config:
+      - subnet: 10.0.1.0/24
+
+  net2:
+    driver: bridge
+    ipam:
+      config:
+      - subnet: 10.0.2.0/24
