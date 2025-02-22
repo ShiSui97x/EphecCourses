@@ -20,5 +20,5 @@ Ce repository contiendra l'ensemble de mes travaux pratiques réalisés dans le 
 
 ## Liste des TPs
 
-- [TP1 : Découverte et prise en main de Docker](./Admin_II/TP1/TP1_reponses.md)
-- [TP2 : Suite de la découverte de Docker](./Admin_II/TP2/TP2.md)
+- [TP1 : Découverte et prise en main de Docker](./TP1/TP1.md)
+- [TP2 : Suite de la découverte de Docker](./TP2/TP2.md)
