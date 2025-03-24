@@ -36,3 +36,20 @@ Cgroups : Gestion des ressources
 Namespaces
 Networking
 Security
+----------------------------------------------
+DNSSEC (S5)
+	
+ZSK : change souvent mais permet de signer les zones et RR
+
+KSK: Pour garantir l'authenticité, il faut la KSK qui va venir signer la clé publique ZSK. Change bcp moins souvent, requis pour la validation par le domaine parent
+----------------------------------------------
+WEB
+
+Proxy (de base) : côté client (entre client et internet)
+
+Reverse Proxy:  côté serveur
+
+Virtual Hosting
+
+Champs "Host" obligatoire dans le header
+server web needs to have two IP Adresses for both name and IP resolution
